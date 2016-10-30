@@ -1,99 +1,93 @@
 #include <iostream>
 #include <string>
-using namespace std ;
+using namespace std;
 
 class Car 
 {
-	int yearModel ;
-	string make ;
-	int speed ; 
+	int yearModel;
+	string make;
+	int speed; 
 	
-	public :
-		
-	~Car(){}
-		
-	Car(int yearModel , string make , int speed)
+	public:
+		Car(int yearModel , string make , int speed)
 	{
-		this -> yearModel = yearModel ;
-		this -> make = make ;
-		this -> speed = speed ;
+		this -> yearModel = yearModel;
+		this -> make = make;
+		this -> speed = speed;
 	}
 		
 	Car(/*int yearModel , string make , int speed*/)
 	{
-		this -> yearModel = yearModel ;
-		this -> make = make ;
-		this -> speed = 0 ;
+		this -> yearModel = yearModel;
+		this -> make = make;
+		this -> speed = 0;
 	}
 	
 	int getYearModel()
 	{
-		return yearModel ;
+		return yearModel;
 	}
 	
 	string getMake()
 	{
-		return make ;
+		return make;
 	}
 	
 	int getSpeed()
 	{
-		return speed ;
+		return speed;
 	}
 	
 	void accessor();
 	
 	int accelerate(int)
 	{
-		cout<<"speed now = "<<speed <<endl;
+		cout << "Current Speed = " << speed << " m/s" <<endl;
 		
-		for(int i=0 ; i<5 ; i++)
+		for(int i = 0 ; i < 5 ; i++)
 		{
 			
 			speed = speed + 5 ;
-			cout << "acceleration " << i+1 <<" = " <<speed<<endl;
+			cout << "Acceleration " << i + 1 <<" = " << speed << " m/s" <<endl;
 		}
 	}
 	
 	int brake(int)
 	{
-		cout<<"speed now (after 5x acceleration) = " <<speed <<endl ;
+		cout << "Current speed after 5 times accelerations = " << speed << " m/s" << endl;
 		
-		for(int i=0 ; i<5 ; i++)
+		for(int i = 0 ; i < 5 ; i++)
 		{
 			
 			speed = speed - 5 ;
-			cout << "brake " << i+1 <<" = " <<speed<<endl;
+			cout << "Brake " << i + 1 <<" = " << speed << " m/s" << endl;
 		}
 	}
 };
 
-
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 int main()
 {
-	int year,speed;
+	int year;
+	int speed;
 	string make ;
 	
-	cout<<"input year model : " ;
+	cout << "Please input the car's year model: ";
 	cin >> year;
 	
-	cout<<"input make : " ;
-	cin>> make ;
+	cout << "Please input the year of the making  : ";
+	cin >> make;
 	
-	cout << "input speed : ";
-	cin>> speed ;
+	cout << "Please input the speed: ";
+	cin >> speed;
 	
-	cout<<endl ;
+	cout << endl;
 	
-	Car input (year,make,speed) ;
-	
+	Car input (year, make, speed);
 	input.accelerate(input.getSpeed());
-	
-	cout<<endl ;
-	
+	cout << endl;
 	input.brake(input.getSpeed());
-	
-	
+
 return 0;	
 }
